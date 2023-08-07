@@ -63,7 +63,7 @@ class PopupField extends FormField
             'URLCode' => $this->getFormURLCode(),
         ];
 
-        Requirements::javascriptTemplate('app/client/js/popup-field.js', $vars);
+        Requirements::javascriptTemplate('iliain/silverstripe-popup:client/js/popup-field.js', $vars);
         
         return parent::Field($properties);
     }
