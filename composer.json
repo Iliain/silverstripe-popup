@@ -1,0 +1,28 @@
+{
+    "name": "iliain/silverstripe-popup",
+    "type": "silverstripe-vendormodule",
+    "description": "Adds a field to quickly generate a CMS popup",
+    "license": "BSD-3-Clause",
+    "keywords": [
+        "silverstripe",
+        "modular",
+        "cms",
+        "popup"
+    ],
+    "homepage": "http://github.com/Iliain/silverstripe-popup",
+    "require": {
+        "php": "^7 || ^8",
+        "silverstripe/framework": "^4 || ^5"
+    },
+    "autoload": {
+        "psr-4": {
+            "Iliain\\Popup\\": "src/"
+        }
+    },
+    "extra": {
+        "expose": [
+            "client"
+        ]
+    },
+    "minimum-stability": "dev"
+}
