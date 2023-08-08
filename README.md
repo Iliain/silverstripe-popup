@@ -43,7 +43,7 @@ An example of the custom JS:
 
 ```JS
 // On Button Click
-this.getDialog().on('click', 'button#Form_testForm_action_doSubmit', function () {
+this.getDialog().on('click', 'button', function () {
     $(this).addClass('loading ui-state-disabled');
 });
 
