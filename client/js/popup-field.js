@@ -11,7 +11,10 @@ window.ss = window.ss || {};
                 Loading: null,
                 Dialog: null,
                 URL: null,
-                onmatch() {                    
+                onmatch() {          
+                    // self is necessary to function
+                    const self = this;
+                    
                     // Set URL to load dialog content from
                     this.setURL(`$URL`);
                     
