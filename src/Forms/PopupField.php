@@ -8,9 +8,9 @@ use SilverStripe\ORM\FieldType\DBHTMLText;
 
 class PopupField extends FormField
 {
+    protected $formURL = null;
+    
     protected$formCustomCode = null;
-
-    protected $formURLCode = null;
 
     /**
      * Returns a button to trigger a popup
@@ -18,12 +18,19 @@ class PopupField extends FormField
      * @param string $name
      * @param null|string $title
      */
-    public function __construct($name, $title = null, $formCustomCode = null, $formURLCode = null)
+    public function __construct($name, $title = null, $formURL = null, $formCustomCode = null)
     {
+        $this->setFormURL($formURL);
         $this->setFormCustomCode($formCustomCode);
-        $this->setFormURLCode($formURLCode);
 
         parent::__construct($name, $title);
+    }
+
+    public function setFormURL($formURL)
+    {
+        $this->formURL = $formURL;
+
+        return $this;
     }
 
     public function setFormCustomCode($formCustomCode)
@@ -33,21 +40,14 @@ class PopupField extends FormField
         return $this;
     }
 
-    public function setFormURLCode($formURLCode)
+    public function getFormURL()
     {
-        $this->formURLCode = $formURLCode;
-
-        return $this;
+        return $this->formURL;
     }
 
     public function getFormCustomCode()
     {
         return $this->formCustomCode;
-    }
-
-    public function getFormURLCode()
-    {
-        return $this->formURLCode;
     }
 
     /**
@@ -59,8 +59,9 @@ class PopupField extends FormField
     public function Field($properties = [])
     {
         $vars = [
-            'customCode' => $this->getFormCustomCode(),
-            'URLCode' => $this->getFormURLCode(),
+            'buttonID' => $this->ID(),
+            'URL' => $this->getFormURL(),
+            'customCode' => $this->getFormCustomCode()
         ];
 
         Requirements::javascriptTemplate('iliain/silverstripe-popup:client/js/popup-field.js', $vars);
@@ -74,8 +75,7 @@ class PopupField extends FormField
             parent::getAttributes(),
             [
                 'class' => 'btn btn-info font-icon-torso popup-field-button',
-                'type' => 'button',
-                'data-dialog-title' => $this->Title()
+                'type' => 'button'
             ]
         );
 

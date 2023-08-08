@@ -70,16 +70,12 @@ this.getDialog().on('submit', 'form', function () {
 });
 JS;
 
-$customLinkJS = <<<JS
-this.setURL('/PopupForms/form');
-JS;
+$customLink = '/PopupForms/form';
 
 // Clean out newline characters from PHP
 $customBodyJS = str_replace(array("\r", "\n"), '', $customBodyJS);
-$customLinkJS = str_replace(array("\r", "\n"), '', $customLinkJS);
 
 PopupField::create('PopupForm', 'I\'m a popup')
-    ->setFormCustomCode($customBodyJS)
-    ->setFormURLCode($customLinkJS)
-
+    ->setFormURL($customLink)
+    ->setFormCustomCode($customBodyJS);
 ```
