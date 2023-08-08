@@ -16,7 +16,7 @@ window.ss = window.ss || {};
                     this.setURL(`$URL`);
                     
                     // Configure Dialog
-                    this.setDialog(this.siblings(this.attr('id') + '-dialog'));
+                    this.setDialog(this.siblings('#' + this.attr('id') + '-dialog'));
                     this.getDialog().data('field', this).dialog({
                         autoOpen: false,
                         width: $(window).width() * (50 / 100),
