@@ -22,12 +22,16 @@ TODO
 You can implement a PopupField like so:
 
 ```PHP
+// necessary config
 $customLink = '/PopupForms/form';
-
 $customBodyJS = <<<JS
     // custom js goes here
 JS;
 
+// method A
+PopupField::create('PopupForm', 'I am a popup', $customLink, $customBodyJS);
+
+// method B
 PopupField::create('PopupForm', 'I am a popup')
     ->setFormURL($customLink)
     ->setFormCustomCode($customBodyJS);

@@ -75,7 +75,7 @@ $customLink = '/PopupForms/form';
 // Clean out newline characters from PHP
 $customBodyJS = str_replace(array("\r", "\n"), '', $customBodyJS);
 
-PopupField::create('PopupForm', 'I\'m a popup')
+PopupField::create('PopupForm', 'I am a popup')
     ->setFormURL($customLink)
     ->setFormCustomCode($customBodyJS);
 ```
