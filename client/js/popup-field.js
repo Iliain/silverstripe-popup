@@ -7,7 +7,7 @@ window.ss = window.ss || {};
         jQuery.noConflict();
 
         jQuery.entwine('ss', ($) => {
-            $(`$buttonID`).entwine({
+            $(`#$buttonID`).entwine({
                 Loading: null,
                 Dialog: null,
                 URL: null,
