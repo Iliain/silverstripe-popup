@@ -7,13 +7,13 @@ window.ss = window.ss || {};
         jQuery.noConflict();
 
         jQuery.entwine('ss', ($) => {
-            $('"#' + $buttonID + '"').entwine({
+            $("'#" + $buttonID + "'").entwine({
                 Loading: null,
                 Dialog: null,
                 URL: null,
                 onmatch() {                    
                     // Set URL to load dialog content from
-                    this.setURL($URL);
+                    this.setURL("'" + $URL + "'");
                     
                     // Configure Dialog
                     this.setDialog(this.siblings(this.attr('id') + '-dialog'));
